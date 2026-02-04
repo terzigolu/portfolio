@@ -67,6 +67,7 @@ body {
   color: var(--default-color);
   background-color: var(--background-color);
   font-family: var(--default-font);
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6), 0 0 2px rgba(0, 0, 0, 0.8);
   overflow-x: hidden;
 }
 
@@ -544,31 +545,31 @@ section,
   display: none;
 }
 
-.hero-floating-pattern {
-  position: absolute;
+.bg-floating-pattern {
+  position: fixed;
   inset: -50%;
   width: 200%;
   height: 200%;
-  z-index: 2;
+  z-index: 0;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.08;
   background-repeat: repeat;
-  background-size: 320px auto;
-  filter: grayscale(0.5) brightness(1.3) blur(1px);
+  background-size: 420px auto;
+  filter: grayscale(0.3) brightness(1.2) blur(0.3px);
 }
 
-.hero-pattern-cursor {
+.bg-pattern-cursor {
   background-image: url('../img/cursor-stats.jpg');
   transform: rotate(-8deg);
   animation: patternDrift1 40s linear infinite;
 }
 
-.hero-pattern-github {
+.bg-pattern-github {
   background-image: url('../img/github-contributions.png');
   transform: rotate(5deg);
   animation: patternDrift2 50s linear infinite;
-  opacity: 0.025;
-  background-size: 400px auto;
+  opacity: 0.08;
+  background-size: 520px auto;
 }
 
 @keyframes patternDrift1 {
@@ -582,13 +583,13 @@ section,
 }
 
 @media (max-width: 768px) {
-  .hero-floating-pattern {
+  .bg-floating-pattern {
     background-size: 220px auto;
-    opacity: 0.025;
+    opacity: 0.04;
   }
-  .hero-pattern-github {
+  .bg-pattern-github {
     background-size: 280px auto;
-    opacity: 0.02;
+    opacity: 0.03;
   }
 }
 
