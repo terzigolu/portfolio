@@ -68,7 +68,12 @@ body {
   background-color: var(--background-color);
   font-family: var(--default-font);
   text-shadow: 0 1px 8px rgba(0, 0, 0, 0.6), 0 0 2px rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.3px;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.5px;
 }
 
 a {
