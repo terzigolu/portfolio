@@ -17,38 +17,41 @@
   --nav-font: "Poppins",  sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
-:root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #272829; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #45505b; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #0563bb; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
-}
-
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Global Colors — Dark mode with accent gradient */
 :root {
-  --nav-color: #45505b;  /* The default color of the main navmenu links */
-  --nav-hover-color: #0563bb; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #212529; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #0563bb; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --background-color: #0a0a0f;
+  --default-color: #c8ccd4;
+  --heading-color: #eef0f4;
+  --accent-color: #6c63ff;
+  --accent-color-2: #00d4aa;
+  --surface-color: rgba(255, 255, 255, 0.04);
+  --contrast-color: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
+/* Nav Menu Colors */
+:root {
+  --nav-color: #8a8f9a;
+  --nav-hover-color: #6c63ff;
+  --nav-mobile-background-color: rgba(10, 10, 15, 0.95);
+  --nav-dropdown-background-color: rgba(10, 10, 15, 0.95);
+  --nav-dropdown-color: #c8ccd4;
+  --nav-dropdown-hover-color: #6c63ff;
+}
 
+/* Color Presets */
 .light-background {
-  --background-color: #f9f9f9;
-  --surface-color: #ffffff;
+  --background-color: rgba(255, 255, 255, 0.02);
+  --surface-color: rgba(255, 255, 255, 0.04);
 }
 
 .dark-background {
-  --background-color: #060606;
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  --surface-color: #252525;
+  --background-color: #060609;
+  --default-color: #c8ccd4;
+  --heading-color: #eef0f4;
+  --surface-color: rgba(255, 255, 255, 0.04);
   --contrast-color: #ffffff;
 }
 
@@ -157,8 +160,10 @@ h6 {
 
 @media (max-width: 1199px) {
   .header {
-    background-color: var(--background-color);
-    border-right: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+    background: rgba(10, 10, 15, 0.9);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid var(--glass-border);
     width: 300px;
     left: -100%;
   }
@@ -226,12 +231,15 @@ h6 {
   padding: 10px 18px;
   margin-bottom: 8px;
   font-size: 15px;
-  border-radius: 50px;
-  background: color-mix(in srgb, var(--default-color), transparent 92%);
+  border-radius: 14px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   height: 56px;
   width: 100%;
   overflow: hidden;
-  transition: 0.3s;
+  transition: all 0.3s ease;
 }
 
 .navmenu a i,
@@ -262,7 +270,8 @@ h6 {
 .navmenu .active:focus,
 .navmenu li:hover>a {
   color: var(--contrast-color);
-  background: var(--nav-hover-color);
+  background: rgba(108, 99, 255, 0.2);
+  border-color: rgba(108, 99, 255, 0.3);
 }
 
 .navmenu a:hover,
@@ -330,7 +339,7 @@ h6 {
 
 .footer .copyright {
   padding-top: 25px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+  border-top: 1px solid var(--glass-border);
 }
 
 .footer .credits {
@@ -346,7 +355,7 @@ h6 {
   inset: 0;
   z-index: 999999;
   overflow: hidden;
-  background: var(--background-color);
+  background: #0a0a0f;
   transition: all 0.6s ease-out;
 }
 
@@ -355,12 +364,12 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #ffffff;
-  border-color: var(--accent-color) transparent var(--accent-color) transparent;
+  border: 3px solid rgba(108, 99, 255, 0.2);
+  border-top-color: var(--accent-color);
   border-radius: 50%;
   width: 60px;
   height: 60px;
-  animation: animate-preloader 1.5s linear infinite;
+  animation: animate-preloader 1s linear infinite;
 }
 
 @keyframes animate-preloader {
@@ -374,14 +383,7 @@ h6 {
 }
 
 .hero-bg {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  position: absolute;
-  top: 0;
-  background-color: red;
-  left: 0;
+  display: none;
 }
 /*--------------------------------------------------------------
 # Scroll Top Button
@@ -533,24 +535,28 @@ section,
   display: flex;
   align-items: center;
   justify-content: center;
+  background: transparent;
+  overflow: hidden;
 }
 
 .hero img {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 1;
+  display: none;
 }
 
 .hero:before {
   content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 30%);
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
+  background: radial-gradient(ellipse at 20% 50%, rgba(108, 99, 255, 0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 20%, rgba(0, 212, 170, 0.1) 0%, transparent 50%),
+              radial-gradient(ellipse at 60% 80%, rgba(108, 99, 255, 0.08) 0%, transparent 40%);
+  animation: heroGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes heroGlow {
+  0% { opacity: 0.7; transform: scale(1); }
+  100% { opacity: 1; transform: scale(1.05); }
 }
 
 .hero .container {
@@ -562,33 +568,49 @@ section,
   margin: 0;
   font-size: 64px;
   font-weight: 700;
+  color: #eef0f4;
+  letter-spacing: -1px;
 }
 
 .hero p {
-  margin: 5px 0 0 0;
+  margin: 10px 0 0 0;
   font-size: 26px;
+  color: #8a8f9a;
 }
 
 .hero p span {
   letter-spacing: 1px;
   border-bottom: 2px solid var(--accent-color);
+  color: var(--contrast-color);
 }
 
 .hero .social-links {
-  margin-top: 25px;
+  margin-top: 30px;
 }
 
 .hero .social-links a {
-  font-size: 20px;
-  display: inline-block;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  line-height: 1;
-  margin-right: 20px;
-  transition: 0.3s;
+  font-size: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  color: #8a8f9a;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-right: 12px;
+  transition: all 0.3s ease;
 }
 
 .hero .social-links a:hover {
-  color: var(--accent-color);
+  color: var(--contrast-color);
+  background: rgba(108, 99, 255, 0.2);
+  border-color: rgba(108, 99, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.3);
 }
 
 @media (max-width: 768px) {
@@ -696,15 +718,18 @@ section,
 }
 
 .skills .progress-bar-wrap {
-  background: color-mix(in srgb, var(--default-color), transparent 90%);
-  height: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
 .skills .progress-bar {
   width: 1px;
-  height: 10px;
+  height: 8px;
+  border-radius: 4px;
   transition: 0.9s;
-  background-color: var(--accent-color);
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-2));
 }
 
 /*--------------------------------------------------------------
@@ -757,13 +782,14 @@ section,
 .resume .resume-item::before {
   content: "";
   position: absolute;
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
   border-radius: 50px;
-  left: -9px;
+  left: -8px;
   top: 0;
-  background: var(--background-color);
-  border: 2px solid var(--accent-color);
+  background: var(--accent-color);
+  border: 2px solid rgba(108, 99, 255, 0.3);
+  box-shadow: 0 0 12px rgba(108, 99, 255, 0.4);
 }
 
 /*--------------------------------------------------------------
@@ -1466,4 +1492,301 @@ section,
 --------------------------------------------------------------*/
 .starter-section {
   /* Add your styles here */
+}
+
+/*--------------------------------------------------------------
+# Dark Mode — Animated Gradient Mesh Background
+--------------------------------------------------------------*/
+body {
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  background: #0a0a0f;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(108, 99, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(0, 212, 170, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(108, 99, 255, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(99, 102, 241, 0.05) 0%, transparent 40%);
+  animation: meshFloat 20s ease-in-out infinite;
+}
+
+@keyframes meshFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(2%, -2%) rotate(1deg); }
+  50% { transform: translate(-1%, 3%) rotate(-0.5deg); }
+  75% { transform: translate(1%, -1%) rotate(0.5deg); }
+}
+
+/*--------------------------------------------------------------
+# Glassmorphism Cards
+--------------------------------------------------------------*/
+.card {
+  background: var(--glass-bg) !important;
+  border: 1px solid var(--glass-border) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 16px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-color: rgba(108, 99, 255, 0.2) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(108, 99, 255, 0.15);
+}
+
+.card .card-title {
+  color: var(--heading-color);
+  font-weight: 700;
+}
+
+.card .card-text {
+  color: var(--default-color);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.card .badge {
+  font-weight: 500;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.card .badge.bg-primary {
+  background: rgba(108, 99, 255, 0.15) !important;
+  color: #a5a0ff;
+  border: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.card .badge.bg-secondary {
+  background: rgba(0, 212, 170, 0.12) !important;
+  color: #00d4aa;
+  border: 1px solid rgba(0, 212, 170, 0.2);
+}
+
+.card .card-img-top {
+  border-radius: 16px 16px 0 0 !important;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card-img-top {
+  opacity: 1;
+}
+
+/*--------------------------------------------------------------
+# Section Glass Styling
+--------------------------------------------------------------*/
+section,
+.section {
+  background-color: transparent;
+}
+
+.section-title h2::before {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.section-title h2::after {
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-color-2));
+}
+
+/*--------------------------------------------------------------
+# Profile Image Glass Border
+--------------------------------------------------------------*/
+.about .img-fluid {
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/*--------------------------------------------------------------
+# Contact Form Dark Glass
+--------------------------------------------------------------*/
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email],
+.contact .php-email-form textarea {
+  background-color: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--default-color);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.contact .php-email-form input[type=text]:focus,
+.contact .php-email-form input[type=email]:focus,
+.contact .php-email-form textarea:focus {
+  border-color: rgba(108, 99, 255, 0.5);
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.15);
+}
+
+.contact .php-email-form button[type=submit] {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-color-2));
+  border-radius: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.contact .php-email-form button[type=submit]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(108, 99, 255, 0.35);
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-color-2));
+}
+
+.contact .info-item i {
+  background: rgba(108, 99, 255, 0.1);
+  color: var(--accent-color);
+  border: 1px solid rgba(108, 99, 255, 0.15);
+  border-radius: 12px;
+}
+
+.contact .info-item:hover i {
+  background: var(--accent-color);
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.3);
+}
+
+/*--------------------------------------------------------------
+# Resume Date Badge Dark
+--------------------------------------------------------------*/
+.resume .resume-item h5 {
+  background: rgba(108, 99, 255, 0.12);
+  color: #a5a0ff;
+  border-radius: 8px;
+  font-size: 13px;
+  padding: 4px 12px;
+  border: 1px solid rgba(108, 99, 255, 0.15);
+}
+
+/*--------------------------------------------------------------
+# Footer Dark Glass
+--------------------------------------------------------------*/
+.footer {
+  background: transparent;
+  border-top: 1px solid var(--glass-border);
+}
+
+.footer .social-links a {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.footer .social-links a:hover {
+  background: rgba(108, 99, 255, 0.2);
+  border-color: rgba(108, 99, 255, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(108, 99, 255, 0.25);
+}
+
+/*--------------------------------------------------------------
+# Scroll Top Dark
+--------------------------------------------------------------*/
+.scroll-top {
+  background: linear-gradient(135deg, var(--accent-color), var(--accent-color-2));
+  border-radius: 12px;
+}
+
+.scroll-top:hover {
+  box-shadow: 0 4px 20px rgba(108, 99, 255, 0.4);
+}
+
+/*--------------------------------------------------------------
+# Header Toggle Dark
+--------------------------------------------------------------*/
+.header .header-toggle {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  color: var(--default-color);
+}
+
+.header .header-toggle:hover {
+  background: rgba(108, 99, 255, 0.2);
+  color: var(--contrast-color);
+}
+
+/*--------------------------------------------------------------
+# Skills Category Headers
+--------------------------------------------------------------*/
+.skills h5 {
+  color: var(--heading-color);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.skills h5 i {
+  color: var(--accent-color);
+  margin-right: 6px;
+}
+
+.skills .progress .skill {
+  font-size: 13px;
+  text-transform: none;
+  letter-spacing: 0.3px;
+}
+
+/*--------------------------------------------------------------
+# Enhanced Animations
+--------------------------------------------------------------*/
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(108, 99, 255, 0.1); }
+  50% { box-shadow: 0 0 40px rgba(108, 99, 255, 0.2); }
+}
+
+/* Subtle glow on section title accent bar */
+.section-title h2::after {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Smooth link underline animation */
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Resume timeline glow */
+.resume .resume-item {
+  border-left: 2px solid rgba(108, 99, 255, 0.2);
+  transition: border-color 0.3s ease;
+}
+
+.resume .resume-item:hover {
+  border-left-color: rgba(108, 99, 255, 0.5);
+}
+
+/* Typed cursor color */
+.typed-cursor {
+  color: var(--accent-color) !important;
 }
