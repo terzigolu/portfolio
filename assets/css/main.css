@@ -601,53 +601,6 @@ section,
   display: none;
 }
 
-.bg-floating-pattern {
-  position: fixed;
-  inset: -50%;
-  width: 200%;
-  height: 200%;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.08;
-  background-repeat: repeat;
-  background-size: 420px auto;
-  filter: grayscale(0.3) brightness(1.2) blur(0.3px);
-}
-
-.bg-pattern-cursor {
-  background-image: url('../img/cursor-stats.jpg');
-  transform: rotate(-8deg);
-  animation: patternDrift1 80s linear infinite;
-}
-
-.bg-pattern-github {
-  background-image: url('../img/github-contributions.png');
-  transform: rotate(5deg);
-  animation: patternDrift2 100s linear infinite;
-  opacity: 0.08;
-  background-size: 520px auto;
-}
-
-@keyframes patternDrift1 {
-  0% { transform: rotate(-8deg) translate(0, 0); }
-  100% { transform: rotate(-8deg) translate(-420px, -420px); }
-}
-
-@keyframes patternDrift2 {
-  0% { transform: rotate(5deg) translate(0, 0); }
-  100% { transform: rotate(5deg) translate(520px, -520px); }
-}
-
-@media (max-width: 768px) {
-  .bg-floating-pattern {
-    background-size: 220px auto;
-    opacity: 0.04;
-  }
-  .bg-pattern-github {
-    background-size: 280px auto;
-    opacity: 0.03;
-  }
-}
 
 .hero:before {
   content: "";
