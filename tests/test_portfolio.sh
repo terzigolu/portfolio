@@ -95,11 +95,30 @@ assert_contains "$html" 'href="https://sentscan.com"' "SentScan uses its current
 assert_contains "$html" '>sentscan.com<' "SentScan URL is visible in the project identity"
 assert_contains "$html" '>ramorie.com<' "Ramorie URL is visible in the project identity"
 assert_contains "$html" 'href="https://www.turna.com/"' "current Turna.com experience links to the employer"
-assert_contains "$html" '>Mobile Application Engineer<' "current Turna.com role is visible"
+assert_matches_multiline "$html" '<a href="#contact" data-nav-link>Contact</a>[[:space:]]*<a class="nav-product-link" href="https://ramorie.com" target="_blank" rel="noopener noreferrer" data-nav-link>Ramorie' "header places the Ramorie product link directly after Contact"
+assert_contains "$html" '<span class="project-status">Current role · 03</span>' "Turna.com is the third featured case study"
+assert_contains "$html" '<strong>Turna.com</strong>' "Turna.com has a text-only project identity"
+assert_contains "$html" '>turna.com<' "Turna.com URL is visible in the project identity"
+project_identity_count=$(rg -o 'class="project-identity"' "$html" | wc -l | tr -d ' ')
+if [[ "$project_identity_count" == "3" ]]; then
+  pass "projects section contains three featured identity cards"
+else
+  fail "projects section contains three featured identity cards"
+fi
+assert_contains "$html" '<h3>Senior Software Engineer</h3><p class="timeline-company"><a href="https://www.turna.com/"' "current Turna.com role is visible"
 assert_contains "$html" 'Turna.com · 4 months · Present' "current Turna.com tenure is visible"
 assert_contains "$html" '"jobTitle": [' "structured profile exposes multiple current professional titles"
-assert_contains "$html" '"Mobile Application Engineer"' "structured profile includes the current Turna.com role"
+assert_contains "$html" '"Senior Software Engineer"' "structured profile includes the current Turna.com role"
+assert_not_contains "$html" 'Mobile Application Engineer' "superseded Turna.com role is absent"
 assert_contains "$html" '"url": "https://www.turna.com/"' "structured data links the current Turna.com employer"
+works_for_block=$(sed -n '/"worksFor": \[/,/"sameAs": \[/p' "$html")
+if [[ "$works_for_block" != *'Ork Digital'* ]]; then
+  pass "structured current employers exclude former employer Ork Digital"
+else
+  fail "structured current employers exclude former employer Ork Digital"
+fi
+assert_contains "$html" '<time datetime="2025-06">2025 — 2026</time><div><h3>Senior Software Engineer — R&amp;D</h3><p class="timeline-company">Ork Digital · Hybrid</p>' "Ork Digital is shown as 2025 to 2026"
+assert_not_contains "$html" 'Jun 2025 — Present' "Ork Digital is not shown as current"
 assert_contains "$html" 'class="project-identity"' "featured projects use text-only identity panels"
 assert_not_contains "$html" 'class="project-identity" href="https://sentscan.com" target="_blank" rel="noopener noreferrer" aria-label=' "SentScan link uses its visible text as its accessible name"
 assert_not_contains "$html" 'class="project-identity" href="https://ramorie.com" target="_blank" rel="noopener noreferrer" aria-label=' "Ramorie link uses its visible text as its accessible name"
@@ -174,8 +193,17 @@ for ai_file in "$llms" "$llms_full"; do
   assert_contains "$ai_file" 'https://sentscan.com' "${ai_file:t} links SentScan"
   assert_contains "$ai_file" 'https://ramorie.com' "${ai_file:t} links Ramorie"
   assert_contains "$ai_file" 'https://www.turna.com/' "${ai_file:t} links the current Turna.com employer"
-  assert_contains "$ai_file" 'Mobile Application Engineer' "${ai_file:t} names the current Turna.com role"
+  assert_contains "$ai_file" 'Senior Software Engineer' "${ai_file:t} names the current Turna.com role"
+  assert_not_contains "$ai_file" 'Mobile Application Engineer' "${ai_file:t} removes the superseded Turna.com role"
 done
+assert_contains "$llms_full" '## Previous experience' "AI profile separates previous experience from current work"
+assert_contains "$llms_full" 'Ork Digital from 2025 to 2026' "AI profile dates former Ork Digital employment"
+current_work_block=$(sed -n '/^## Current work$/,/^## Previous experience$/p' "$llms_full")
+if [[ "$current_work_block" != *'Ork Digital'* ]]; then
+  pass "AI current work excludes former employer Ork Digital"
+else
+  fail "AI current work excludes former employer Ork Digital"
+fi
 assert_contains "$llms_full" 'Okan University — Mobile Technologies, 2017.' "AI profile matches visible Okan education"
 assert_contains "$llms_full" 'Anadolu University — History, undergraduate, ongoing.' "AI profile matches visible Anadolu education"
 assert_not_contains "$llms_full" 'Electrical & Electronics Engineering' "AI profile does not invent an Okan degree"

@@ -38,11 +38,13 @@ Ramorie is an AI agent memory and task-management platform focused on continuity
 
 URL: https://www.turna.com/
 
-Yusuf currently works at Turna.com as a Mobile Application Engineer and has done so for 4 months as of 2026-08-31. His portfolio describes this work as building and improving the travel platform's customer-facing mobile application experience.
+Yusuf currently works at Turna.com as a Senior Software Engineer and has done so for 4 months as of 2026-08-31. His portfolio describes this work as building and improving the travel platform's customer-facing mobile application experience.
+
+## Previous experience
 
 ### Ork Digital
 
-Yusuf works in senior software engineering and R&D at Ork Digital. His portfolio describes architecture work across SentScan and Ramorie, including multi-model AI pipelines, agent memory, knowledge graphs, caching, billing, and production operations.
+Yusuf worked at Ork Digital from 2025 to 2026 in senior software engineering and R&D. His portfolio describes architecture work across SentScan and Ramorie, including multi-model AI pipelines, agent memory, knowledge graphs, caching, billing, and production operations.
 
 ## Additional selected work
 
