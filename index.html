@@ -122,14 +122,14 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Resume",
-          "item": "https://terzigolu.github.io/portfolio/#resume"
+          "name": "Experience",
+          "item": "https://terzigolu.github.io/portfolio/#experience"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "Projects",
-          "item": "https://terzigolu.github.io/portfolio/#portfolio"
+          "item": "https://terzigolu.github.io/portfolio/#work"
         },
         {
           "@type": "ListItem",
@@ -237,854 +237,278 @@
     <link href="assets/img/favicon.png" rel="icon">
     <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-    <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Regular.woff2" rel="preload" as="font" type="font/woff2" crossorigin />
-    <link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Medium.woff2" rel="preload" as="font" type="font/woff2" crossorigin />
-    <link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-SemiBold.woff2" rel="preload" as="font" type="font/woff2" crossorigin />
-    <link href="https://cdn.jsdelivr.net/npm/geist@1.3.1/dist/fonts/geist-mono/GeistMono-Bold.woff2" rel="preload" as="font" type="font/woff2" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Vendor CSS Files -->
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link
-      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-      rel="stylesheet"
-    />
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-    <link
-      href="assets/vendor/glightbox/css/glightbox.min.css"
-      rel="stylesheet"
-    />
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
-
-    <!-- Main CSS File -->
     <link href="assets/css/main.css" rel="stylesheet" />
-
-    <!-- =======================================================
-  * Template Name: MyResume
-  * Template URL: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+    <script>
+      document.documentElement.classList.add("js");
+      try {
+        document.documentElement.dataset.theme = localStorage.getItem("yt-theme") || "dark";
+      } catch (error) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
   </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <body class="index-page">
-    <header
-      id="header"
-      class="header d-flex flex-column justify-content-center"
-    >
-      <i class="header-toggle d-xl-none bi bi-list"></i>
+    <header id="site-header" class="site-header">
+      <div class="nav-shell">
+        <a class="wordmark" href="#home" aria-label="Yusuf Terzioglu, home">
+          <span class="wordmark-mark" aria-hidden="true">YT</span>
+          <span class="wordmark-role">Systems Architect</span>
+        </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li>
-            <a href="#hero" class="active"
-              ><i class="bi bi-house navicon"></i><span>Home</span></a
-            >
-          </li>
-          <li>
-            <a href="#about"
-              ><i class="bi bi-person navicon"></i><span>About</span></a
-            >
-          </li>
-          <li>
-            <a href="#resume"
-              ><i class="bi bi-file-earmark-text navicon"></i
-              ><span>Resume</span></a
-            >
-          </li>
-          <li>
-            <a href="#skills"
-              ><i class="bi bi-gear navicon"></i><span>Skills</span></a
-            >
-          </li>
-          <li>
-            <a href="#portfolio"
-              ><i class="bi bi-images navicon"></i><span>Projects</span></a
-            >
-          </li>
-        
-          <li>
-            <a href="#contact"
-              ><i class="bi bi-envelope navicon"></i><span>Contact</span></a
-            >
-          </li>
-        </ul>
-      </nav>
+        <button id="nav-toggle" class="icon-button nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation">
+          <span></span><span></span>
+        </button>
+
+        <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+          <a href="#work" data-nav-link>Work</a>
+          <a href="#about" data-nav-link>About</a>
+          <a href="#experience" data-nav-link>Experience</a>
+          <a href="#contact" data-nav-link>Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button id="theme-toggle" class="icon-button theme-toggle" type="button" aria-label="Toggle color theme">
+            <span data-theme-icon aria-hidden="true">◐</span>
+          </button>
+          <a class="button button-small" href="mailto:terzigolu@gmail.com">Let's talk</a>
+        </div>
+      </div>
     </header>
 
-    <main class="main">
-      <!-- Hero Section -->
-      <section id="hero" class="hero section dark-background">
-        <img class="hero-bg" src="assets/img/hero-bg.jpg" alt="Yusuf Terzioglu portfolio background" />
+    <main id="main-content">
+      <section id="home" class="hero" data-section>
+        <div class="container hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow hero-kicker" data-reveal>Yusuf Terzioglu · Istanbul</p>
+            <h1 data-reveal>I build AI products that <span>survive production.</span></h1>
+            <p class="hero-intro" data-reveal>
+              AI-driven software architect shaping LLM systems, autonomous agents, and full-stack products from first principle to reliable operation.
+            </p>
+            <div class="hero-actions" data-reveal>
+              <a class="button" href="#work">View selected work <span aria-hidden="true">↘</span></a>
+              <a class="button button-secondary" href="mailto:terzigolu@gmail.com">Start a conversation</a>
+            </div>
+            <div class="hero-meta" data-reveal>
+              <span><span class="status-dot" aria-hidden="true"></span> Available for ambitious systems</span>
+              <span>TR / EN</span>
+            </div>
+          </div>
 
-        <div class="container" data-aos="zoom-out">
-          <div class="row justify-content-center">
-            <div class="col-lg-9">
-              <h1>Yusuf Terzioglu</h1>
-              <p>
-                I'm an
-                <span
-                  class="typed"
-                  data-typed-items="AI-Driven Software Architect,LLM Systems Builder,Full-Stack Product Engineer"
-                  >AI-Driven Software Architect</span
-                ><span
-                  class="typed-cursor typed-cursor--blink"
-                  aria-hidden="true"
-                ></span>
-              </p>
-              <div class="social-links">
-                <a href="https://www.linkedin.com/in/yusuf-terzio%C4%9Flu-292222186/" aria-label="Yusuf Terzioglu LinkedIn profile" rel="noopener"><i class="bi bi-linkedin"></i></a>
-                <a href="https://github.com/terzigolu" aria-label="Yusuf Terzioglu GitHub profile" rel="noopener"><i class="bi bi-github"></i></a>
-                <a href="mailto:terzigolu@gmail.com" aria-label="Email Yusuf Terzioglu"><i class="bi bi-envelope"></i></a>
-              </div>
+          <div class="system-map" aria-label="Working method: Architect, Build, Operate" data-reveal>
+            <div class="system-map-header">
+              <span class="utility-label">System trace</span>
+              <span class="system-live">Live</span>
+            </div>
+            <ol class="system-steps">
+              <li>
+                <span class="step-index">01</span>
+                <div><strong>Architect</strong><small>Make the complex legible.</small></div>
+              </li>
+              <li>
+                <span class="step-index">02</span>
+                <div><strong>Build</strong><small>Turn intent into product.</small></div>
+              </li>
+              <li>
+                <span class="step-index">03</span>
+                <div><strong>Operate</strong><small>Observe, learn, improve.</small></div>
+              </li>
+            </ol>
+            <div class="trace-output">
+              <span>Output</span>
+              <strong>Durable software</strong>
             </div>
           </div>
         </div>
       </section>
-      <!-- /Hero Section -->
 
-      <!-- About Section -->
-      <section id="about" class="about section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>About</h2>
-          <p>
-            Software architect with 10+ years of engineering experience, specializing in AI-driven SaaS platforms, LLM orchestration, and autonomous agent systems. Built production systems processing 500K+ social media comments using multi-model AI pipelines.
-          </p>
-          <p>
-            Deep expertise in React Native (7+ years), TypeScript, Next.js, and Supabase. Background spans full-stack web/mobile development, IoT systems, and embedded electronics.
-          </p>
+      <aside class="proof-strip" aria-label="Career highlights">
+        <div class="container proof-grid">
+          <div class="proof-item"><strong>10+</strong><span>years engineering</span></div>
+          <div class="proof-item"><strong>7+</strong><span>years React Native</span></div>
+          <div class="proof-item"><strong>500K+</strong><span>comments processed</span></div>
+          <div class="proof-item"><strong>IST</strong><span>based in Istanbul</span></div>
         </div>
-        <!-- End Section Title -->
+      </aside>
 
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-          <div class="row gy-4 justify-content-center">
-            <div class="col-lg-4">
-              <img src="assets/img/55751392.jpeg" class="img-fluid" alt="Yusuf Terzioglu" />
-            </div>
-            <div class="col-lg-8 content">
-              <h2>Yusuf Terzioglu - AI-Driven Software Architect &amp; LLM Systems Builder</h2>
-              <p class="fst-italic py-3">
-                Simplicity beats complexity at scale. Deterministic over random. Observable over implicit. Systems should think, not just execute.
-              </p>
-              <div class="row">
-                <div class="col-lg-6">
-                  <ul>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Phone:</strong> <span>+90 530 653 3089</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>City:</strong> <span>Istanbul, Turkey</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Email:</strong> <span>terzigolu@gmail.com</span>
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-lg-6">
-                  <ul>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Experience:</strong> <span>10+ years</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Languages:</strong> <span>Turkish (Native), English (Professional)</span>
-                    </li>
-                    <li>
-                      <i class="bi bi-chevron-right"></i>
-                      <strong>Freelance:</strong> <span>Available</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <p class="py-3">
-                Currently building <a href="https://orkai.io" target="_blank">ORKAI</a>, an AI SaaS platform analyzing 500K+ social media comments via multi-model LLM pipelines (Gemini, Claude, OpenAI); <a href="https://ramorie.com" target="_blank">Ramorie</a>, an AI agent memory and task management system with knowledge graph and MCP tooling; and SentScan, an AI-powered sentiment analysis tool for brand insights.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- /About Section -->
-
-
-
-      <!-- Skills Section -->
-      <section id="skills" class="skills section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Skills</h2>
-          <p>
-            10+ years across AI/LLM systems, full-stack web &amp; mobile development, backend infrastructure, and IoT/embedded electronics.
-          </p>
-        </div>
-        <!-- End Section Title -->
-
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-          <!-- AI & LLM -->
-          <h5 class="mb-3 mt-2"><i class="bi bi-robot"></i> AI &amp; LLM</h5>
-          <div class="row skills-content skills-animation">
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"><span>LLM Orchestration &amp; Multi-Agent Systems</span> <i class="val">95%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>Prompt Engineering &amp; RAG Pipelines</span> <i class="val">95%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"><span>Gemini / Claude / OpenAI APIs</span> <i class="val">95%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>MCP Tooling &amp; Agent Memory</span> <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Frontend -->
-          <h5 class="mb-3 mt-4"><i class="bi bi-phone"></i> Frontend &amp; Mobile</h5>
-          <div class="row skills-content skills-animation">
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"><span>React Native (7+ years)</span> <i class="val">98%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>TypeScript</span> <i class="val">95%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>React.js &amp; Next.js 15</span> <i class="val">95%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"><span>Redux Toolkit &amp; RTK Query</span> <i class="val">95%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>Expo</span> <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>Zustand &amp; Zod</span> <i class="val">85%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Backend -->
-          <h5 class="mb-3 mt-4"><i class="bi bi-server"></i> Backend &amp; Infrastructure</h5>
-          <div class="row skills-content skills-animation">
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"><span>Node.js &amp; Next.js API Routes</span> <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>BullMQ &amp; Redis</span> <i class="val">85%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>PostgreSQL &amp; Supabase (RLS)</span> <i class="val">90%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"><span>NestJS &amp; Prisma</span> <i class="val">85%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>Docker &amp; CI/CD</span> <i class="val">80%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-              <div class="progress">
-                <span class="skill"><span>Firebase &amp; MongoDB</span> <i class="val">80%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- IoT & Electronics -->
-          <h5 class="mb-3 mt-4"><i class="bi bi-cpu"></i> IoT &amp; Electronics</h5>
-          <div class="row skills-content skills-animation">
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"><span>Embedded C &amp; PCB Design</span> <i class="val">75%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="progress">
-                <span class="skill"><span>GSM/LoRa &amp; MQTT &amp; Sensor Networks</span> <i class="val">70%</i></span>
-                <div class="progress-bar-wrap">
-                  <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-      <!-- /Skills Section -->
-
-      <!-- Resume Section -->
-      <section id="resume" class="resume section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Resume</h2>
-          <p>
-            Software architect with 10+ years spanning AI-driven SaaS platforms, LLM orchestration, full-stack web/mobile development, IoT systems, and embedded electronics.
-          </p>
-        </div>
-        <!-- End Section Title -->
-
+      <section id="work" class="section work-section" data-section>
         <div class="container">
-          <div class="row">
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <h3 class="resume-title">Summary</h3>
-
-              <div class="resume-item pb-0">
-                <h4>Yusuf Terzioglu</h4>
-                <p>
-                  <em>AI-Driven Software Architect with 10+ years of engineering experience. Specializing in AI-driven SaaS platforms, LLM orchestration, and autonomous agent systems. Built production systems processing 500K+ social media comments using multi-model AI pipelines. Deep expertise in React Native (7+ years), TypeScript, Next.js, and Supabase.</em>
-                </p>
-                <ul>
-                  <li>Istanbul, Turkey</li>
-                  <li>+90 530 653 3089</li>
-                  <li>terzigolu@gmail.com</li>
-                </ul>
-              </div>
-              <!-- End Resume Item -->
-
-              <h3 class="resume-title">Education</h3>
-              <div class="resume-item">
-                <h4>Mobile Technologies</h4>
-                <h5>2017</h5>
-                <p><em>Okan University, Turkey</em></p>
-              </div>
-              <!-- End Resume Item -->
-
-              <div class="resume-item">
-                <h4>History (Undergraduate)</h4>
-                <h5>Ongoing</h5>
-                <p><em>Anadolu University, Turkey</em></p>
-              </div>
-              <!-- End Resume Item -->
-
-              <!-- Early Career (left column) -->
-              <h3 class="resume-title">Early Career</h3>
-
-              <div class="resume-item">
-                <h4>React Native Developer</h4>
-                <h5>Sep 2021 - Jan 2022</h5>
-                <p><em>Internet on Furniture (Freelance)</em></p>
-                <ul>
-                  <li>IoT smart home control app (Bluetooth, Wi-Fi, Raspberry Pi)</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>React Native Developer</h4>
-                <h5>Mar 2021 - May 2021</h5>
-                <p><em>Gofody (Freelance)</em></p>
-                <ul>
-                  <li>Courier app for food delivery with real-time location tracking</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Mobile Engineer</h4>
-                <h5>Jan 2020 - Dec 2021</h5>
-                <p><em>Şölen (CBN Lojistik)</em></p>
-                <ul>
-                  <li>40Ayak &mdash; logistics/container tracking for port operations</li>
-                  <li>WebSocket real-time communication</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Android Developer</h4>
-                <h5>Apr 2019 - Mar 2020</h5>
-                <p><em>Bulcaz</em></p>
-                <ul>
-                  <li>Native Android business discovery platform</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Game Developer</h4>
-                <h5>Jul 2019 - Sep 2019</h5>
-                <p><em>Alf Games</em></p>
-                <ul>
-                  <li>Unity (C#) mobile games</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Business Development Specialist</h4>
-                <h5>Mar 2018 - Sep 2019</h5>
-                <p><em>Rimer Elektrik</em></p>
-                <ul>
-                  <li>PCB production for power-line communication, hardware assembly, firmware</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Web Development Intern</h4>
-                <h5>Jan 2017 - Dec 2017</h5>
-                <p><em>Hayen Bilişim</em></p>
-                <ul>
-                  <li>GridBox energy management system</li>
-                </ul>
-              </div>
-
-              <div class="resume-item">
-                <h4>Intern</h4>
-                <h5>Jan 2017 - May 2017</h5>
-                <p><em>NAR Sistem</em></p>
-                <ul>
-                  <li>Energy data management, industrial monitoring</li>
-                </ul>
-              </div>
+          <header class="section-heading" data-reveal>
+            <div>
+              <p class="eyebrow">Selected systems</p>
+              <h2>Products with a point of view.</h2>
             </div>
+            <p>AI systems, memory infrastructure, and mobile products built around real operational constraints.</p>
+          </header>
 
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-              <h3 class="resume-title">Professional Experience</h3>
-
-              <div class="resume-item">
-                <h4>Senior Software Engineer &mdash; R&amp;D</h4>
-                <h5>Jun 2025 - Present</h5>
-                <p><em>Ork Digital (ORKAI) &bull; Hybrid</em></p>
-                <ul>
-                  <li>Architected <a href="https://orkai.io" target="_blank">ORKAI</a>: AI SaaS analyzing 500K+ YouTube/Instagram/TikTok comments via multi-model LLM pipelines (Gemini, Claude, OpenAI)</li>
-                  <li>Next.js 15, Supabase (PostgreSQL + RLS), BullMQ, Redis queue orchestration</li>
-                  <li>Credit-based billing with İyzico, unified admin dashboard</li>
-                  <li>Hybrid caching + cost-optimized model routing</li>
-                  <li>Built <a href="https://ramorie.com" target="_blank">Ramorie</a> &mdash; AI agent memory &amp; task management with knowledge graph, entity extraction, MCP tooling</li>
-                  <li>Developed SentScan &mdash; AI-powered sentiment analysis tool for processing customer feedback and social media content</li>
-                </ul>
+          <article class="case-study case-study-featured" data-reveal>
+            <div class="case-copy">
+              <div class="case-heading-row">
+                <span class="utility-label">AI SaaS · 2025</span>
+                <span class="case-number">01</span>
               </div>
-              <!-- End Resume Item -->
-
-              <div class="resume-item">
-                <h4>Senior Software Development Engineer</h4>
-                <h5>Mar 2025 - Present</h5>
-                <p><em>doremusic &bull; Part-time</em></p>
-                <ul>
-                  <li>Leading Rhym: P2P music-instrument marketplace with wallet, escrow, shipping automation</li>
-                  <li>React Native + Next.js backend</li>
-                </ul>
-              </div>
-              <!-- End Resume Item -->
-
-              <div class="resume-item">
-                <h4>Full Stack Engineer</h4>
-                <h5>Feb 2024 - Apr 2025</h5>
-                <p><em>Eight Creative &bull; Remote</em></p>
-                <ul>
-                  <li><a target="_blank" href="https://www.ucuzyolu.com/">Ucuzyolu.com</a> &mdash; travel platform (flight, hotel, bus integrations)</li>
-                  <li>Little Caesars Turkey mobile app</li>
-                  <li>Redux + RTK Query state management</li>
-                </ul>
-              </div>
-              <!-- End Resume Item -->
-
-              <div class="resume-item">
-                <h4>Mobile Engineer</h4>
-                <h5>Nov 2022 - Apr 2024</h5>
-                <p><em>Procat A.S.</em></p>
-                <ul>
-                  <li>Enterprise React Native apps, native bridges, middleware</li>
-                </ul>
-              </div>
-              <!-- End Resume Item -->
-
-              <div class="resume-item">
-                <h4>Mobile Application Developer</h4>
-                <h5>Mar 2022 - Feb 2023</h5>
-                <p><em><a href="https://www.boyner.com.tr/" target="_blank">Boyner Grup</a></em></p>
-                <ul>
-                  <li>Boyner e-commerce mobile app, performance optimization</li>
-                </ul>
-              </div>
-              <!-- End Resume Item -->
-
-              <div class="resume-item">
-                <h4>React Native Developer</h4>
-                <h5>Nov 2021 - May 2022</h5>
-                <p><em><a href="https://www.yorglass.com/" target="_blank">Yorglass</a></em></p>
-                <ul>
-                  <li>Ming App &mdash; internal social/communication platform with chat, gamification</li>
-                  <li>Android + iOS from scratch, Firebase</li>
-                </ul>
-              </div>
-              <!-- End Resume Item -->
+              <h3>ORKAI</h3>
+              <p class="case-lede">Multi-model intelligence for the conversations brands cannot read one by one.</p>
+              <p>ORKAI analyzes 500K+ YouTube, Instagram, and TikTok comments through Gemini, Claude, and OpenAI pipelines with hybrid caching and cost-aware model routing.</p>
+              <ul class="tag-list" aria-label="ORKAI technologies">
+                <li>Next.js 15</li><li>Supabase</li><li>Redis</li><li>BullMQ</li><li>Multi-model LLM</li>
+              </ul>
+              <a class="text-link" href="https://orkai.io" target="_blank" rel="noopener noreferrer">Visit ORKAI <span aria-hidden="true">↗</span></a>
             </div>
+            <div class="product-frame product-frame-orkai">
+              <img src="assets/img/portfolio/orkai-analysis.jpg" class="product-image" alt="ORKAI multi-model analysis dashboard" width="1040" height="1161" loading="lazy" decoding="async" />
+              <img src="assets/img/portfolio/orkai-input.jpg" class="product-image product-image-overlay" alt="ORKAI social media analysis input" width="1148" height="679" loading="lazy" decoding="async" />
+            </div>
+          </article>
+
+          <article class="case-study case-study-reverse" data-reveal>
+            <div class="case-copy">
+              <div class="case-heading-row">
+                <span class="utility-label">Agent infrastructure · 2025</span>
+                <span class="case-number">02</span>
+              </div>
+              <h3>Ramorie</h3>
+              <p class="case-lede">Persistent memory for AI agents that need continuity, not another chat log.</p>
+              <p>Agent memory and task management built around knowledge graphs, entity extraction, procedural skills, MCP orchestration, a Go CLI, and a Next.js workspace.</p>
+              <ul class="tag-list" aria-label="Ramorie technologies">
+                <li>Go</li><li>Next.js</li><li>PostgreSQL</li><li>Redis</li><li>MCP</li>
+              </ul>
+              <a class="text-link" href="https://ramorie.com" target="_blank" rel="noopener noreferrer">Explore Ramorie <span aria-hidden="true">↗</span></a>
+            </div>
+            <div class="product-frame product-frame-ramorie">
+              <img src="assets/img/portfolio/ramorie-agent-hub.jpg" class="product-image" alt="Ramorie AI agent workspace" width="1726" height="1157" loading="lazy" decoding="async" />
+              <div class="frame-caption"><span>Memory</span><span>Tasks</span><span>Knowledge graph</span></div>
+            </div>
+          </article>
+
+          <div class="supporting-work">
+            <article class="work-card" data-reveal>
+              <span class="utility-label">AI insight</span>
+              <h3>SentScan</h3>
+              <p>Sentiment analysis for customer feedback and social content using NLP and LLM pipelines.</p>
+              <ul class="tag-list"><li>TypeScript</li><li>Next.js</li><li>Supabase</li></ul>
+            </article>
+            <article class="work-card" data-reveal>
+              <span class="utility-label">Marketplace</span>
+              <h3>Rhym</h3>
+              <p>P2P music-instrument marketplace with wallet, escrow, and automated shipping workflows.</p>
+              <ul class="tag-list"><li>React Native</li><li>Next.js</li><li>.NET</li></ul>
+            </article>
+            <article class="work-card" data-reveal>
+              <span class="utility-label">Logistics + IoT</span>
+              <h3>40Ayak</h3>
+              <p>Container tracking for port operations with real-time WebSocket shipment updates.</p>
+              <ul class="tag-list"><li>React Native</li><li>PostgreSQL</li><li>Socket.IO</li></ul>
+            </article>
           </div>
         </div>
       </section>
-      <!-- /Resume Section -->
 
-      <!-- Portfolio Section -->
-      <section id="portfolio" class="portfolio section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Key Projects</h2>
-          <p>
-            Production systems spanning AI/LLM platforms, marketplaces, logistics, and IoT.
-          </p>
+      <section id="about" class="section about-section" data-section>
+        <div class="container about-grid">
+          <div class="portrait-wrap" data-reveal>
+            <img src="assets/img/55751392.jpeg" class="profile-image" alt="Portrait of Yusuf Terzioglu" width="400" height="400" decoding="async" />
+            <div class="portrait-caption"><span>Yusuf Terzioglu</span><span>Istanbul · TR</span></div>
+          </div>
+          <div class="about-copy">
+            <p class="eyebrow" data-reveal>About the builder</p>
+            <h2 data-reveal>Software should think clearly before it moves fast.</h2>
+            <p class="about-lede" data-reveal>I'm a software architect with 10+ years across AI-driven SaaS, LLM orchestration, full-stack web and mobile products, IoT systems, and embedded electronics.</p>
+            <p data-reveal>My work moves between model behavior, product experience, data boundaries, and production operations. That range matters: good architecture is not a diagram—it is what remains understandable when the system gets busy.</p>
+            <blockquote data-reveal>
+              <span>Simplicity over complexity.</span>
+              <span>Deterministic over random.</span>
+              <span>Observable over implicit.</span>
+            </blockquote>
+          </div>
         </div>
-        <!-- End Section Title -->
+      </section>
 
+      <section id="capabilities" class="section capabilities-section">
         <div class="container">
-          <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-
-            <!-- ORKAI -->
-            <div class="col-lg-6 col-md-6">
-              <div class="card h-100 shadow-sm border-0">
-                <a href="assets/img/portfolio/orkai-analysis.jpg" class="glightbox" data-gallery="portfolio-gallery-orkai">
-                  <img src="assets/img/portfolio/orkai-analysis.jpg" class="card-img-top" alt="ORKAI Analysis Dashboard" />
-                </a>
-                <a href="assets/img/portfolio/orkai-input.jpg" class="glightbox d-none" data-gallery="portfolio-gallery-orkai"></a>
-                <div class="card-body">
-                  <h4 class="card-title mb-2"><a href="https://orkai.io" target="_blank">ORKAI</a></h4>
-                  <p class="text-muted small mb-2">AI SaaS &mdash; 500K+ comments analyzed</p>
-                  <p class="card-text">AI SaaS platform analyzing YouTube, Instagram, and TikTok comments using multi-model LLM pipelines with hybrid caching, multi-agent pipelines, and brand insights.</p>
-                  <div class="mt-2">
-                    <span class="badge bg-primary me-1">Next.js 15</span>
-                    <span class="badge bg-primary me-1">Supabase</span>
-                    <span class="badge bg-primary me-1">Redis</span>
-                    <span class="badge bg-primary me-1">BullMQ</span>
-                    <span class="badge bg-secondary me-1">Gemini</span>
-                    <span class="badge bg-secondary me-1">Claude</span>
-                    <span class="badge bg-secondary me-1">OpenAI</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Project -->
-
-            <!-- Ramorie -->
-            <div class="col-lg-6 col-md-6">
-              <div class="card h-100 shadow-sm border-0">
-                <a href="assets/img/portfolio/ramorie-landing.jpg" class="glightbox" data-gallery="portfolio-gallery-ramorie">
-                  <img src="assets/img/portfolio/ramorie-landing.jpg" class="card-img-top" alt="Ramorie Landing Page" />
-                </a>
-                <a href="assets/img/portfolio/ramorie-agent-hub.jpg" class="glightbox d-none" data-gallery="portfolio-gallery-ramorie"></a>
-                <a href="assets/img/portfolio/ramorie-decisions.jpg" class="glightbox d-none" data-gallery="portfolio-gallery-ramorie"></a>
-                <div class="card-body">
-                  <h4 class="card-title mb-2"><a href="https://ramorie.com" target="_blank">Ramorie</a></h4>
-                  <p class="text-muted small mb-2">AI Agent Memory &amp; Task Management</p>
-                  <p class="card-text">AI agent memory and task management platform with knowledge graph, entity extraction, procedural skills, and MCP orchestration. Go CLI tool, Next.js web dashboard, Redis for high scalability.</p>
-                  <div class="mt-2">
-                    <span class="badge bg-primary me-1">Go</span>
-                    <span class="badge bg-primary me-1">Next.js</span>
-                    <span class="badge bg-primary me-1">PostgreSQL</span>
-                    <span class="badge bg-primary me-1">Redis</span>
-                    <span class="badge bg-primary me-1">CLI</span>
-                    <span class="badge bg-secondary me-1">MCP</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Project -->
-
-            <!-- SentScan -->
-            <div class="col-lg-6 col-md-6">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h4 class="card-title mb-2">SentScan</h4>
-                  <p class="text-muted small mb-2">AI-Powered Sentiment Analysis</p>
-                  <p class="card-text">SentScan is an AI-powered sentiment analysis tool that processes customer feedback and social media content to extract actionable brand insights using NLP and LLM pipelines.</p>
-                  <div class="mt-2">
-                    <span class="badge bg-primary me-1">TypeScript</span>
-                    <span class="badge bg-primary me-1">Next.js</span>
-                    <span class="badge bg-primary me-1">Supabase</span>
-                    <span class="badge bg-secondary me-1">NLP</span>
-                    <span class="badge bg-secondary me-1">LLM</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Project -->
-
-            <!-- Rhym -->
-            <div class="col-lg-6 col-md-6">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h4 class="card-title mb-2">Rhym</h4>
-                  <p class="text-muted small mb-2">P2P Music-Instrument Marketplace</p>
-                  <p class="card-text">Peer-to-peer music-instrument marketplace with integrated wallet, escrow system, and automated shipping logistics.</p>
-                  <div class="mt-2">
-                    <span class="badge bg-primary me-1">React Native</span>
-                    <span class="badge bg-primary me-1">Next.js</span>
-                    <span class="badge bg-primary me-1">.NET</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Project -->
-
-            <!-- 40Ayak -->
-            <div class="col-lg-6 col-md-6">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h4 class="card-title mb-2">40Ayak</h4>
-                  <p class="text-muted small mb-2">Logistics &amp; Container Tracking</p>
-                  <p class="card-text">Container tracking platform for port operations with real-time WebSocket updates for live shipment monitoring.</p>
-                  <div class="mt-2">
-                    <span class="badge bg-primary me-1">React Native</span>
-                    <span class="badge bg-primary me-1">PostgreSQL</span>
-                    <span class="badge bg-primary me-1">Socket.IO</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Project -->
-
-            <!-- IoT Systems -->
-            <div class="col-lg-6 col-md-6">
-              <div class="card h-100 shadow-sm border-0">
-                <div class="card-body">
-                  <h4 class="card-title mb-2">IoT Smart Home &amp; Industrial Systems</h4>
-                  <p class="text-muted small mb-2">Hardware + Software Integration</p>
-                  <p class="card-text">Custom automation modules, GSM meter readers, PCB design, sensor networks, and field diagnostics for smart home and industrial applications.</p>
-                  <div class="mt-2">
-                    <span class="badge bg-primary me-1">Embedded C</span>
-                    <span class="badge bg-primary me-1">GSM/LoRa</span>
-                    <span class="badge bg-primary me-1">MQTT</span>
-                    <span class="badge bg-primary me-1">React Native</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Project -->
-
+          <header class="section-heading" data-reveal>
+            <div><p class="eyebrow">Capabilities</p><h2>Depth without percentage bars.</h2></div>
+            <p>Tools change. The useful part is knowing where each one belongs in the system.</p>
+          </header>
+          <div class="capability-list">
+            <article class="capability-row" data-reveal><span class="capability-index">01</span><h3>AI systems</h3><p>LLM orchestration, multi-agent systems, RAG pipelines, MCP tooling, agent memory, Gemini, Claude, OpenAI</p></article>
+            <article class="capability-row" data-reveal><span class="capability-index">02</span><h3>Product engineering</h3><p>TypeScript, React, Next.js 15, Redux Toolkit, RTK Query, Zustand, Zod</p></article>
+            <article class="capability-row" data-reveal><span class="capability-index">03</span><h3>Mobile</h3><p>React Native, Expo, native bridges, Android, iOS, Firebase, real-time product flows</p></article>
+            <article class="capability-row" data-reveal><span class="capability-index">04</span><h3>Backend &amp; infrastructure</h3><p>Go, Node.js, NestJS, PostgreSQL, Supabase RLS, Redis, BullMQ, Docker, CI/CD</p></article>
+            <article class="capability-row" data-reveal><span class="capability-index">05</span><h3>IoT &amp; embedded</h3><p>Embedded C, PCB design, GSM, LoRa, MQTT, sensor networks, field diagnostics</p></article>
           </div>
         </div>
       </section>
-      <!-- /Portfolio Section -->
 
-    
-      <!-- Contact Section -->
-      <section id="contact" class="contact section">
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Contact</h2>
-          <p>
-            I'm always looking for new opportunities to learn and grow. If you have any questions or would like to get in touch, please don't hesitate to contact me.
-          </p>
+      <section id="experience" class="section experience-section" data-section>
+        <div class="container experience-layout">
+          <header class="section-heading experience-heading" data-reveal>
+            <div><p class="eyebrow">Experience</p><h2>A decade across software layers.</h2></div>
+            <p>Recent work leads with AI systems and product architecture; the path started in energy, hardware, and mobile.</p>
+          </header>
+
+          <div class="timeline">
+            <article class="timeline-item" data-reveal><time>Jun 2025 — Present</time><div><h3>Senior Software Engineer — R&amp;D</h3><p class="timeline-company">Ork Digital (ORKAI) · Hybrid</p><p>Architecting ORKAI, Ramorie, and SentScan across multi-model AI pipelines, agent memory, knowledge graphs, caching, billing, and production operations.</p></div></article>
+            <article class="timeline-item" data-reveal><time>Mar 2025 — Present</time><div><h3>Senior Software Development Engineer</h3><p class="timeline-company">doremusic · Part-time</p><p>Leading Rhym, a P2P instrument marketplace with wallet, escrow, shipping automation, React Native, and a Next.js backend.</p></div></article>
+            <article class="timeline-item" data-reveal><time>Feb 2024 — Apr 2025</time><div><h3>Full Stack Engineer</h3><p class="timeline-company">Eight Creative · Remote</p><p>Built travel and commerce products including Ucuzyolu.com and the Little Caesars Turkey mobile application.</p></div></article>
+            <article class="timeline-item" data-reveal><time>Nov 2022 — Apr 2024</time><div><h3>Mobile Engineer</h3><p class="timeline-company">Procat A.S.</p><p>Enterprise React Native applications, native bridges, and middleware integrations.</p></div></article>
+            <article class="timeline-item" data-reveal><time>Mar 2022 — Feb 2023</time><div><h3>Mobile Application Developer</h3><p class="timeline-company">Boyner Grup</p><p>Boyner's e-commerce mobile application and performance optimization.</p></div></article>
+            <article class="timeline-item" data-reveal><time>Nov 2021 — May 2022</time><div><h3>React Native Developer</h3><p class="timeline-company">Yorglass</p><p>Built the Ming internal communication platform for Android and iOS with chat, gamification, and Firebase.</p></div></article>
+
+            <details class="earlier-career" data-reveal>
+              <summary>Earlier work · 2017—2022 <span>View eight roles</span></summary>
+              <div class="earlier-grid">
+                <article><time>2021—2022</time><h3>React Native Developer</h3><p>Internet on Furniture · IoT smart home control</p></article>
+                <article><time>2021</time><h3>React Native Developer</h3><p>Gofody · Courier app and real-time tracking</p></article>
+                <article><time>2020—2021</time><h3>Mobile Engineer</h3><p>Şölen / CBN Lojistik · 40Ayak port logistics</p></article>
+                <article><time>2019—2020</time><h3>Android Developer</h3><p>Bulcaz · Native Android discovery platform</p></article>
+                <article><time>2019</time><h3>Game Developer</h3><p>Alf Games · Unity mobile games</p></article>
+                <article><time>2018—2019</time><h3>Business Development Specialist</h3><p>Rimer Elektrik · PCB, hardware, firmware</p></article>
+                <article><time>2017</time><h3>Web Development Intern</h3><p>Hayen Bilişim · GridBox energy management</p></article>
+                <article><time>2017</time><h3>Intern</h3><p>NAR Sistem · Industrial energy monitoring</p></article>
+              </div>
+            </details>
+          </div>
+
+          <aside class="education" data-reveal>
+            <p class="utility-label">Education</p>
+            <div><strong>Mobile Technologies</strong><span>Okan University · 2017</span></div>
+            <div><strong>History, Undergraduate</strong><span>Anadolu University · Ongoing</span></div>
+          </aside>
         </div>
-        <!-- End Section Title -->
+      </section>
 
-        <div class="container" data-aos="fade" data-aos-delay="100">
-          <div class="row gy-4">
-            <div class="col-lg-4">
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Location</h3>
-                  <p>Istanbul, Turkey</p>
-                </div>
-              </div>
-              <!-- End Info Item -->
-
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Phone</h3>
-                  <p>+90 530 653 3089</p>
-                </div>
-              </div>
-              <!-- End Info Item -->
-
-              <div
-                class="info-item d-flex"
-                data-aos="fade-up"
-                data-aos-delay="400"
-              >
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email</h3>
-                  <p>terzigolu@gmail.com</p>
-                </div>
-              </div>
-              <!-- End Info Item -->
-            </div>
-
-            <div class="col-lg-8">
-              <form
-                action="forms/contact.php"
-                method="post"
-                class="php-email-form"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                <div class="row gy-4">
-                  <div class="col-md-6">
-                    <input
-                      type="text"
-                      name="name"
-                      class="form-control"
-                      placeholder="Your Name"
-                      required=""
-                    />
-                  </div>
-
-                  <div class="col-md-6">
-                    <input
-                      type="email"
-                      class="form-control"
-                      name="email"
-                      placeholder="Your Email"
-                      required=""
-                    />
-                  </div>
-
-                  <div class="col-md-12">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="subject"
-                      placeholder="Subject"
-                      required=""
-                    />
-                  </div>
-
-                  <div class="col-md-12">
-                    <textarea
-                      class="form-control"
-                      name="message"
-                      rows="6"
-                      placeholder="Message"
-                      required=""
-                    ></textarea>
-                  </div>
-
-                  <div class="col-md-12 text-center">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">
-                      Your message has been sent. Thank you!
-                    </div>
-
-                    <button type="submit">Send Message</button>
-                  </div>
-                </div>
-              </form>
-            </div>
-            <!-- End Contact Form -->
+      <section id="contact" class="section contact-section" data-section>
+        <div class="container contact-panel" data-reveal>
+          <p class="eyebrow">Start a conversation</p>
+          <h2>Have a difficult system worth making simple?</h2>
+          <p>I'm open to conversations around AI systems, product architecture, and mobile engineering.</p>
+          <div class="contact-actions">
+            <a class="button button-inverse" href="mailto:terzigolu@gmail.com">terzigolu@gmail.com <span aria-hidden="true">↗</span></a>
+            <a class="button button-quiet" href="tel:+905306533089">+90 530 653 3089</a>
+          </div>
+          <div class="contact-links">
+            <a href="https://github.com/terzigolu" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+            <a href="https://www.linkedin.com/in/yusuf-terzio%C4%9Flu-292222186/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+            <span>Istanbul, Turkey</span>
           </div>
         </div>
       </section>
-      <!-- /Contact Section -->
     </main>
 
-    <footer id="footer" class="footer position-relative">
-      <div class="container">
-        <h3 class="sitename">Yusuf Terzioglu</h3>
-        <p>
-          AI-Driven Software Architect | LLM Systems Builder | Full-Stack Product Engineer
-        </p>
-        <div class="social-links d-flex justify-content-center">
-          <a href="https://www.linkedin.com/in/yusuf-terzio%C4%9Flu-292222186/" aria-label="LinkedIn" rel="noopener"><i class="bi bi-linkedin"></i></a>
-          <a href="https://github.com/terzigolu" aria-label="GitHub" rel="noopener"><i class="bi bi-github"></i></a>
-        </div>
-        <div class="container">
-          <div class="copyright">
-            <span>Copyright</span>
-            <strong class="px-1 sitename">Yusuf Terzioglu</strong>
-            <span>All Rights Reserved</span>
-          </div>
-        </div>
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <span>© 2026 Yusuf Terzioglu</span>
+        <span>AI systems architect · Product engineer</span>
+        <a href="#home">Back to top ↑</a>
       </div>
     </footer>
 
-    <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <!-- Vendor JS Files -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js" defer></script>
   </body>
 </html>
