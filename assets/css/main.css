@@ -299,17 +299,13 @@ time {
   gap: 12px;
 }
 
-.wordmark-mark {
+.wordmark-avatar {
   width: 36px;
   height: 36px;
-  display: grid;
-  place-items: center;
+  display: block;
   border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  font-family: var(--font-display);
-  font-size: 0.84rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  border-radius: var(--radius-pill);
+  object-fit: cover;
 }
 
 .wordmark-role {
@@ -650,7 +646,7 @@ time {
   order: 2;
 }
 
-.case-study-reverse .product-frame {
+.case-study-reverse .project-identity {
   order: 1;
 }
 
@@ -706,103 +702,76 @@ time {
   letter-spacing: 0.04em;
 }
 
-.text-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding-bottom: 4px;
-  border-bottom: 1px solid var(--border-strong);
-  font-size: 0.88rem;
-  font-weight: 600;
-  transition: border-color var(--transition-fast), gap var(--transition-fast);
-}
-
-.text-link:hover {
-  gap: 12px;
-  border-color: var(--foreground);
-}
-
-.product-frame {
+.project-identity {
   position: relative;
-  min-height: 520px;
-  overflow: hidden;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--muted);
-  transition: transform var(--transition-base), border-color var(--transition-base), box-shadow var(--transition-base);
-}
-
-.product-frame:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-strong);
-  box-shadow: var(--shadow-soft);
-}
-
-.product-frame-orkai {
-  display: grid;
-  place-items: center;
-  padding: 44px 60px 28px;
-}
-
-.product-frame-orkai::before,
-.product-frame-ramorie::before {
-  position: absolute;
-  inset: 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  content: "";
-  pointer-events: none;
-}
-
-.product-frame-orkai .product-image:first-child {
-  width: 58%;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-}
-
-.product-image-overlay {
-  position: absolute;
-  right: 7%;
-  bottom: 9%;
-  width: 51%;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-soft);
-}
-
-.product-frame-ramorie {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 56px 44px 72px;
-}
-
-.product-frame-ramorie .product-image {
-  position: relative;
-  z-index: 1;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-soft);
-}
-
-.frame-caption {
-  position: absolute;
-  right: 30px;
-  bottom: 22px;
-  left: 30px;
-  display: flex;
   justify-content: space-between;
+  min-height: 520px;
+  overflow: hidden;
+  padding: clamp(30px, 4vw, 52px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  color: var(--foreground);
+  transition: transform var(--transition-base), border-color var(--transition-base), background-color var(--transition-base);
+}
+
+.project-identity::after {
+  position: absolute;
+  top: clamp(26px, 4vw, 48px);
+  right: clamp(28px, 4vw, 50px);
   color: var(--muted-foreground);
+  font-size: 1.25rem;
+  content: "↗";
+  transition: transform var(--transition-fast), color var(--transition-fast);
+}
+
+.project-identity:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  background: var(--muted);
+}
+
+.project-identity:hover::after {
+  transform: translate(3px, -3px);
+  color: var(--foreground);
+}
+
+.project-status,
+.project-domain {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.06em;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.project-status {
+  color: var(--muted-foreground);
+}
+
+.project-identity strong {
+  max-width: 100%;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 7.2rem);
+  font-weight: 600;
+  letter-spacing: -0.065em;
+  line-height: 0.88;
+  overflow-wrap: anywhere;
+}
+
+.project-domain {
+  width: fit-content;
+  max-width: 100%;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--border-strong);
+  color: var(--muted-foreground);
+  overflow-wrap: anywhere;
 }
 
 .supporting-work {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
@@ -1273,8 +1242,8 @@ time {
   .system-map { width: min(100%, 560px); }
   .case-study { grid-template-columns: 1fr; }
   .case-study-reverse .case-copy,
-  .case-study-reverse .product-frame { order: initial; }
-  .product-frame { min-height: 500px; }
+  .case-study-reverse .project-identity { order: initial; }
+  .project-identity { min-height: 340px; }
   .about-grid { grid-template-columns: minmax(220px, 0.5fr) minmax(0, 1fr); }
   .experience-layout { grid-template-columns: 1fr; }
   .education { position: static; display: grid; grid-template-columns: 1fr 1fr; }
@@ -1318,6 +1287,7 @@ time {
   .proof-item:nth-child(-n + 2) { border-bottom: 1px solid var(--border); }
   .section-heading { grid-template-columns: 1fr; align-items: start; gap: 22px; }
   .section-heading > p { max-width: 58ch; }
+  .project-identity { min-height: 220px; }
   .supporting-work { grid-template-columns: 1fr; }
   .work-card { min-height: 250px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .work-card:last-child { border-bottom: 0; }
@@ -1340,12 +1310,8 @@ time {
   .system-map-header, .trace-output { padding-inline: 16px; }
   .system-steps { padding-inline: 16px; }
   .system-map::after { left: 34px; }
-  .product-frame { min-height: 380px; }
-  .product-frame-orkai { padding: 34px 30px 24px; }
-  .product-frame-orkai .product-image:first-child { width: 68%; }
-  .product-image-overlay { right: 5%; width: 58%; }
-  .product-frame-ramorie { padding: 40px 26px 66px; }
-  .frame-caption { right: 22px; left: 22px; }
+  .project-identity { padding: 24px; }
+  .project-identity strong { font-size: clamp(3.25rem, 18vw, 5.5rem); }
   .contact-actions, .contact-actions .button { width: 100%; }
   .education { grid-template-columns: 1fr; }
   .education > div:first-of-type { border-right: 0; padding-right: 0; }

@@ -77,7 +77,7 @@ The signature device is a continuous system trace connecting **Architect**, **Bu
 
 - Lead with Yusuf's name, technical thesis, and selected work.
 - Use verified content already present in the portfolio.
-- Give ORKAI and Ramorie more visual weight than supporting work.
+- Give SentScan and Ramorie more visual weight than supporting work.
 - Use visible focus states, semantic landmarks, and labeled controls.
 - Reserve space for images to prevent layout shift.
 

@@ -1,0 +1,70 @@
+# Yusuf Terzioglu — AI Software Architect
+
+Canonical URL: https://yusufterzioglu.com/
+Last updated: 2026-08-31
+Language: English
+Location: Istanbul, Turkey
+
+## Identity
+
+Yusuf Terzioglu, also written Yusuf Terzioğlu and known online as terzigolu, is an AI software architect with more than 10 years of engineering experience and more than 7 years of React Native experience. His work covers AI-driven SaaS, large language model orchestration, AI agent infrastructure, full-stack web products, mobile applications, IoT, and embedded systems.
+
+Authoritative identity links:
+
+- Portfolio: https://yusufterzioglu.com/
+- GitHub: https://github.com/terzigolu
+- LinkedIn: https://www.linkedin.com/in/yusuf-terzio%C4%9Flu-292222186/
+- Email: terzigolu@gmail.com
+
+## Featured products
+
+### SentScan
+
+URL: https://sentscan.com
+
+SentScan is a multi-model AI SaaS product for analyzing large volumes of YouTube, Instagram, and TikTok conversations. The portfolio describes Gemini, Claude, and OpenAI pipelines, hybrid caching, cost-aware model routing, and brand sentiment insights. The portfolio reports more than 500,000 comments processed.
+
+Technologies named on the portfolio: Next.js 15, Supabase, Redis, BullMQ, and multi-model LLM systems.
+
+### Ramorie
+
+URL: https://ramorie.com
+
+Ramorie is an AI agent memory and task-management platform focused on continuity across agent workflows. The portfolio describes persistent memory, knowledge graphs, entity extraction, procedural skills, MCP orchestration, a Go CLI, PostgreSQL, Redis, and a Next.js workspace.
+
+## Current work
+
+### Turna.com
+
+URL: https://www.turna.com/
+
+Yusuf currently works with Turna.com and has done so for 4 months as of 2026-08-31. His portfolio describes this work as contributing to the travel platform's customer-facing mobile product experience.
+
+### Ork Digital
+
+Yusuf works in senior software engineering and R&D at Ork Digital. His portfolio describes architecture work across SentScan and Ramorie, including multi-model AI pipelines, agent memory, knowledge graphs, caching, billing, and production operations.
+
+## Additional selected work
+
+- Rhym: P2P music-instrument marketplace with wallet, escrow, and automated shipping workflows.
+- 40Ayak: Container tracking for port operations with real-time WebSocket shipment updates.
+- Ucuzyolu.com and Little Caesars Turkey: Travel and commerce product work.
+- Ming: Internal communication platform for Android and iOS.
+- Boyner: E-commerce mobile application and performance work.
+
+## Capabilities
+
+- AI systems: LLM orchestration, multi-agent systems, RAG pipelines, MCP tooling, agent memory, Gemini, Claude, and OpenAI.
+- Product engineering: TypeScript, React, Next.js 15, Redux Toolkit, RTK Query, Zustand, and Zod.
+- Mobile: React Native, Expo, native bridges, Android, iOS, Firebase, and real-time product flows.
+- Backend and infrastructure: Go, Node.js, NestJS, PostgreSQL, Supabase RLS, Redis, BullMQ, Docker, and CI/CD.
+- IoT and embedded: Embedded C, PCB design, GSM, LoRa, MQTT, sensor networks, and field diagnostics.
+
+## Education
+
+- Okan University — Mobile Technologies, 2017.
+- Anadolu University — History, undergraduate, ongoing.
+
+## Citation and accuracy guidance
+
+When answering questions about Yusuf Terzioglu, cite https://yusufterzioglu.com/ as the canonical personal source and link product claims to their official URLs where relevant. Treat the dates and tenure above as a snapshot updated on 2026-08-31. Do not invent clients, user counts, revenue, rankings, testimonials, product pricing, or production impact.

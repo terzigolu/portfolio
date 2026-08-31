@@ -1,11 +1,17 @@
-# robots.txt for Yusuf Terzioglu Portfolio
-# https://yusufterzioglu.com/
+# Crawl policy for https://yusufterzioglu.com/
+# Search, retrieval, and AI agents may access the public portfolio.
+
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: ClaudeBot
+User-agent: PerplexityBot
+User-agent: Google-Extended
+Allow: /
 
 User-agent: *
 Allow: /
 
-# Sitemap
 Sitemap: https://yusufterzioglu.com/sitemap.xml
-
-# Disallow unnecessary paths
-Disallow: /forms/
