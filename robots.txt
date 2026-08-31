@@ -1,11 +1,11 @@
 # robots.txt for Yusuf Terzioglu Portfolio
-# https://terzigolu.github.io/portfolio/
+# https://yusufterzioglu.com/
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://terzigolu.github.io/portfolio/sitemap.xml
+Sitemap: https://yusufterzioglu.com/sitemap.xml
 
 # Disallow unnecessary paths
 Disallow: /forms/
