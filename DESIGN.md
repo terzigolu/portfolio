@@ -24,9 +24,9 @@ colors:
     dark: "#f5f5f5"
     light: "#262626"
 typography:
-  display: "Outfit, sans-serif"
-  body: "Inter, sans-serif"
-  utility: "Geist Mono, monospace"
+  display: "System UI, sans-serif"
+  body: "System UI, sans-serif"
+  utility: "System UI Mono, monospace"
   bodyLineHeight: 1.65
   readingMeasure: "68ch"
 rounded:
@@ -53,9 +53,8 @@ The signature device is a continuous system trace connecting **Architect**, **Bu
 
 ## Typography
 
-- Use Outfit for large display statements and section headings.
-- Use Inter for paragraphs, controls, and navigation.
-- Use Geist Mono only for dates, metrics, short labels, and technical annotations.
+- Use the native system sans stack for large display statements, paragraphs, controls, and navigation so first paint never waits on a font CDN.
+- Use the native system monospace stack only for dates, metrics, short labels, and technical annotations.
 - Keep paragraphs near 68 characters per line and use a minimum 1.6 line height.
 - Never set long paragraphs or the entire interface in monospace.
 

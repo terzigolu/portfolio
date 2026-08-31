@@ -38,6 +38,18 @@ assert_matches() {
   fi
 }
 
+assert_matches_multiline() {
+  local file=$1
+  local pattern=$2
+  local label=$3
+
+  if rg -Uq -- "$pattern" "$file"; then
+    pass "$label"
+  else
+    fail "$label"
+  fi
+}
+
 assert_not_contains() {
   local file=$1
   local pattern=$2
@@ -86,6 +98,8 @@ assert_contains "$html" 'href="https://www.turna.com/"' "current Turna.com exper
 assert_contains "$html" 'Turna.com · 4 months' "current Turna.com tenure is visible"
 assert_contains "$html" '"url": "https://www.turna.com/"' "structured data links the current Turna.com employer"
 assert_contains "$html" 'class="project-identity"' "featured projects use text-only identity panels"
+assert_not_contains "$html" 'class="project-identity" href="https://sentscan.com" target="_blank" rel="noopener noreferrer" aria-label=' "SentScan link uses its visible text as its accessible name"
+assert_not_contains "$html" 'class="project-identity" href="https://ramorie.com" target="_blank" rel="noopener noreferrer" aria-label=' "Ramorie link uses its visible text as its accessible name"
 assert_not_contains "$html" 'assets/img/portfolio/orkai-' "ORKAI screenshots are not rendered"
 assert_not_contains "$html" 'assets/img/portfolio/ramorie-' "Ramorie screenshots are not rendered"
 
@@ -117,7 +131,10 @@ assert_contains "$html" 'name="twitter:card" content="summary"' "Twitter card ma
 assert_contains "$html" 'rel="me" href="https://github.com/terzigolu"' "GitHub identity link is declared"
 assert_contains "$html" 'rel="me" href="https://www.linkedin.com/' "LinkedIn identity link is declared"
 assert_contains "$html" 'rel="alternate" type="text/plain" href="https://yusufterzioglu.com/llms.txt"' "AI-readable summary is discoverable"
-assert_contains "$html" '&amp;family=Outfit' "remote font URL is valid HTML"
+assert_not_contains "$html" 'fonts.googleapis.com' "Google Fonts does not block first render"
+assert_not_contains "$html" 'fonts.gstatic.com' "Google Fonts preconnect is unnecessary"
+assert_not_contains "$html" 'cdn.jsdelivr.net/npm/geist' "Geist CDN does not block first render"
+assert_not_contains "$css" 'https://' "CSS font loading is fully local/system based"
 assert_not_contains "$html" '<span></span>' "document has no empty spans"
 assert_matches "$html" '<img[^>]+alt="[^\"]+"[^>]+width="[0-9]+"[^>]+height="[0-9]+"' "images expose alt text and dimensions"
 assert_matches "$html" 'target="_blank"[^>]+rel="noopener noreferrer"' "external blank-target links are isolated"
@@ -191,6 +208,8 @@ assert_matches "$css" 'prefers-reduced-motion:[[:space:]]*reduce' "reduced motio
 assert_not_contains "$css" '.theme-toggle { display: none; }' "theme control remains available at 320px"
 assert_contains "$css" '.wordmark-avatar {' "header avatar has dedicated responsive styling"
 assert_contains "$css" '.project-identity { min-height: 220px; }' "project identity has a compact mobile layout contract"
+assert_matches_multiline "$css" '\.case-number[[:space:]]*\{[[:space:]]*color: var\(--muted-foreground\)' "case numbers meet text contrast requirements"
+assert_matches_multiline "$css" '\.capability-index[[:space:]]*\{[[:space:]]*color: var\(--muted-foreground\)' "capability numbers meet text contrast requirements"
 
 for marker in 'const STORAGE_KEY = "yt-theme"' IntersectionObserver prefers-reduced-motion 'setAttribute("aria-expanded"' 'document.documentElement.dataset.theme'; do
   assert_contains "$js" "$marker" "JavaScript behavior $marker exists"
