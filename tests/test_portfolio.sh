@@ -95,7 +95,10 @@ assert_contains "$html" 'href="https://sentscan.com"' "SentScan uses its current
 assert_contains "$html" '>sentscan.com<' "SentScan URL is visible in the project identity"
 assert_contains "$html" '>ramorie.com<' "Ramorie URL is visible in the project identity"
 assert_contains "$html" 'href="https://www.turna.com/"' "current Turna.com experience links to the employer"
-assert_contains "$html" 'Turna.com · 4 months' "current Turna.com tenure is visible"
+assert_contains "$html" '>Mobile Application Engineer<' "current Turna.com role is visible"
+assert_contains "$html" 'Turna.com · 4 months · Present' "current Turna.com tenure is visible"
+assert_contains "$html" '"jobTitle": [' "structured profile exposes multiple current professional titles"
+assert_contains "$html" '"Mobile Application Engineer"' "structured profile includes the current Turna.com role"
 assert_contains "$html" '"url": "https://www.turna.com/"' "structured data links the current Turna.com employer"
 assert_contains "$html" 'class="project-identity"' "featured projects use text-only identity panels"
 assert_not_contains "$html" 'class="project-identity" href="https://sentscan.com" target="_blank" rel="noopener noreferrer" aria-label=' "SentScan link uses its visible text as its accessible name"
@@ -171,6 +174,7 @@ for ai_file in "$llms" "$llms_full"; do
   assert_contains "$ai_file" 'https://sentscan.com' "${ai_file:t} links SentScan"
   assert_contains "$ai_file" 'https://ramorie.com' "${ai_file:t} links Ramorie"
   assert_contains "$ai_file" 'https://www.turna.com/' "${ai_file:t} links the current Turna.com employer"
+  assert_contains "$ai_file" 'Mobile Application Engineer' "${ai_file:t} names the current Turna.com role"
 done
 assert_contains "$llms_full" 'Okan University — Mobile Technologies, 2017.' "AI profile matches visible Okan education"
 assert_contains "$llms_full" 'Anadolu University — History, undergraduate, ongoing.' "AI profile matches visible Anadolu education"
@@ -208,6 +212,25 @@ assert_matches "$css" 'prefers-reduced-motion:[[:space:]]*reduce' "reduced motio
 assert_not_contains "$css" '.theme-toggle { display: none; }' "theme control remains available at 320px"
 assert_contains "$css" '.wordmark-avatar {' "header avatar has dedicated responsive styling"
 assert_contains "$css" '.project-identity { min-height: 220px; }' "project identity has a compact mobile layout contract"
+project_identity_rule=$(sed -n '/^\.project-identity {/,/^}/p' "$css")
+if [[ "$project_identity_rule" == *'container-type: inline-size;'* ]]; then
+  pass "project identity establishes an inline-size container"
+else
+  fail "project identity establishes an inline-size container"
+fi
+project_title_rule=$(sed -n '/^\.project-identity strong {/,/^}/p' "$css")
+if [[ "$project_title_rule" == *'white-space: nowrap;'* ]]; then
+  pass "featured project names stay on one line"
+else
+  fail "featured project names stay on one line"
+fi
+if [[ "$project_title_rule" != *'overflow-wrap: anywhere;'* ]]; then
+  pass "featured project names do not break inside words"
+else
+  fail "featured project names do not break inside words"
+fi
+assert_contains "$css" 'font-size: clamp(3rem, 15cqi, 6rem);' "project title scales against its card instead of the viewport"
+assert_contains "$css" 'font-size: clamp(3rem, 7vw, 6rem);' "project title keeps a safe fallback for browsers without container units"
 assert_matches_multiline "$css" '\.case-number[[:space:]]*\{[[:space:]]*color: var\(--muted-foreground\)' "case numbers meet text contrast requirements"
 assert_matches_multiline "$css" '\.capability-index[[:space:]]*\{[[:space:]]*color: var\(--muted-foreground\)' "capability numbers meet text contrast requirements"
 
