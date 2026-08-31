@@ -79,6 +79,8 @@ else
 fi
 
 assert_not_contains "$html" ' style="' "document has no inline styles"
+assert_contains "$html" '&amp;family=Outfit' "remote font URL is valid HTML"
+assert_not_contains "$html" '<span></span>' "document has no empty spans"
 assert_matches "$html" '<img[^>]+alt="[^\"]+"[^>]+width="[0-9]+"[^>]+height="[0-9]+"' "images expose alt text and dimensions"
 assert_matches "$html" 'target="_blank"[^>]+rel="noopener noreferrer"' "external blank-target links are isolated"
 
