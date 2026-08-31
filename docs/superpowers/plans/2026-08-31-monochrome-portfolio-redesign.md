@@ -4,9 +4,9 @@
 
 **Goal:** Replace the Bootstrap resume template with a distinctive, responsive, shadcn-neutral portfolio that foregrounds Yusuf Terzioglu's AI products and engineering experience.
 
-**Architecture:** Keep the current static GitHub Pages delivery model. Rebuild the single page as semantic HTML, a standalone tokenized CSS system, and dependency-free JavaScript for navigation, theme, reveal motion, and scrollspy; validate structure and behavior with Python/Playwright checks before pushing `main`.
+**Architecture:** Keep the current static delivery model and deploy through the repository's existing Railway service to `yusufterzioglu.com`. Rebuild the single page as semantic HTML, a standalone tokenized CSS system, and dependency-free JavaScript for navigation, theme, reveal motion, and scrollspy; validate structure and behavior before deploying `main`.
 
-**Tech Stack:** HTML5, CSS custom properties, vanilla JavaScript, Python 3 `unittest`, Playwright browser validation, GitHub Pages.
+**Tech Stack:** HTML5, CSS custom properties, vanilla JavaScript, shell contract tests, browser validation when available, Railway.
 
 **Spec:** `docs/superpowers/specs/2026-08-31-monochrome-portfolio-redesign.md`
 
@@ -15,7 +15,7 @@
 - Preserve only claims already present in `index.html`; do not invent achievements, customers, usage numbers, or production claims.
 - Dark mode defaults to `#0a0a0a`/`#f5f5f5`; light mode uses `#ffffff`/`#171717` through semantic CSS variables.
 - Use Outfit for display, Inter for body, and Geist Mono only for technical utility text.
-- Remain static and GitHub Pages-compatible; add no framework, bundler, CMS, contact backend, or analytics integration.
+- Remain static and compatible with the existing Railway service; add no framework, bundler, CMS, contact backend, or analytics integration.
 - Support 320px through desktop, keyboard navigation, visible focus, WCAG AA contrast, and `prefers-reduced-motion`.
 - Unused Bootstrap/AOS/Typed/PureCounter/Waypoints/Isotope/GLightbox/Swiper assets may remain on disk but must not be loaded by `index.html`.
 
@@ -24,34 +24,32 @@
 ### Task 1: Add an executable page contract
 
 **Files:**
-- Create: `tests/test_portfolio.py`
+- Create: `tests/test_portfolio.sh`
 - Modify: `DESIGN.md`
-- Test: `tests/test_portfolio.py`
+- Test: `tests/test_portfolio.sh`
 
 **Interfaces:**
 - Consumes: the current static repository and the approved design spec.
-- Produces: `PortfolioContractTests`, which later tasks use as the structural acceptance gate, plus the project-wide visual token contract in `DESIGN.md`.
+- Produces: `tests/test_portfolio.sh`, which later tasks use as the structural acceptance gate, plus the project-wide visual token contract in `DESIGN.md`.
 
 - [ ] **Step 1: Write the failing structural tests**
 
-```python
-class PortfolioContractTests(unittest.TestCase):
-    def test_primary_sections_exist(self):
-        for section_id in ("home", "work", "about", "experience", "contact"):
-            self.assertIn(f'id="{section_id}"', self.html)
+```zsh
+for section_id in home work about experience contact; do
+  assert_contains "$html" "id=\"$section_id\"" "section #$section_id exists"
+done
 
-    def test_old_template_dependencies_are_removed(self):
-        for dependency in ("bootstrap.min.css", "aos.css", "typed.umd.js", "purecounter"):
-            self.assertNotIn(dependency, self.html.lower())
+for dependency in bootstrap.min.css aos.css typed.umd.js purecounter; do
+  assert_not_contains "$html" "$dependency" "old dependency $dependency is not loaded"
+done
 
-    def test_accessibility_and_theme_controls_exist(self):
-        for marker in ('class="skip-link"', 'id="theme-toggle"', 'aria-label="Toggle color theme"'):
-            self.assertIn(marker, self.html)
+assert_contains "$html" 'class="skip-link"' "skip link exists"
+assert_contains "$html" 'id="theme-toggle"' "theme control exists"
 ```
 
 - [ ] **Step 2: Run the contract and confirm the current template fails**
 
-Run: `python3 -m unittest tests/test_portfolio.py -v`
+Run: `zsh tests/test_portfolio.sh`
 
 Expected: FAIL because the current page uses `hero`, `portfolio`, Bootstrap, and AOS instead of the new contract.
 
@@ -68,7 +66,7 @@ Expected: 0 lint errors. If the tool cannot run without installing a package, re
 - [ ] **Step 5: Commit the acceptance contract**
 
 ```bash
-git add DESIGN.md tests/test_portfolio.py
+git add DESIGN.md tests/test_portfolio.sh
 git commit -m "test: define portfolio redesign contract"
 ```
 
@@ -76,10 +74,10 @@ git commit -m "test: define portfolio redesign contract"
 
 **Files:**
 - Modify: `index.html`
-- Test: `tests/test_portfolio.py`
+- Test: `tests/test_portfolio.sh`
 
 **Interfaces:**
-- Consumes: section IDs and required markers from `PortfolioContractTests`.
+- Consumes: section IDs and required markers from `tests/test_portfolio.sh`.
 - Produces: stable DOM hooks `#site-header`, `#nav-toggle`, `#theme-toggle`, `[data-section]`, `[data-reveal]`, and `[data-theme-icon]` for CSS and JavaScript.
 
 - [ ] **Step 1: Replace template markup with semantic landmarks**
@@ -121,14 +119,14 @@ Keep only favicon, remote font, Bootstrap Icons if used, `assets/css/main.css`, 
 
 - [ ] **Step 6: Run the structural tests**
 
-Run: `python3 -m unittest tests/test_portfolio.py -v`
+Run: `zsh tests/test_portfolio.sh`
 
 Expected: PASS for page structure, dependency removal, links, image attributes, and theme/accessibility markers.
 
 - [ ] **Step 7: Commit semantic page reconstruction**
 
 ```bash
-git add index.html tests/test_portfolio.py
+git add index.html tests/test_portfolio.sh
 git commit -m "feat: rebuild portfolio content hierarchy"
 ```
 
@@ -136,7 +134,7 @@ git commit -m "feat: rebuild portfolio content hierarchy"
 
 **Files:**
 - Modify: `assets/css/main.css`
-- Test: `tests/test_portfolio.py`
+- Test: `tests/test_portfolio.sh`
 
 **Interfaces:**
 - Consumes: semantic classes and `data-*` hooks from Task 2 plus tokens documented in `DESIGN.md`.
@@ -164,7 +162,7 @@ Hide reveal elements only under `.js`; transition visible elements once; disable
 
 - [ ] **Step 6: Run static validation**
 
-Run: `python3 -m unittest tests/test_portfolio.py -v && git diff --check`
+Run: `zsh tests/test_portfolio.sh && git diff --check`
 
 Expected: all tests pass and no whitespace errors.
 
@@ -179,7 +177,7 @@ git commit -m "feat: add monochrome portfolio design system"
 
 **Files:**
 - Modify: `assets/js/main.js`
-- Test: `tests/test_portfolio.py`
+- Test: `tests/test_portfolio.sh`
 
 **Interfaces:**
 - Consumes: `#site-header`, `#nav-toggle`, `#site-nav`, `#theme-toggle`, `[data-section]`, `[data-reveal]`, and `[data-theme-icon]`.
@@ -205,7 +203,7 @@ Use IntersectionObserver for one-time reveals and active section updates. When r
 
 - [ ] **Step 4: Run structural and syntax validation**
 
-Run: `python3 -m unittest tests/test_portfolio.py -v && node --check assets/js/main.js`
+Run: `zsh tests/test_portfolio.sh && node --check - < assets/js/main.js`
 
 Expected: all tests pass and Node reports no syntax errors.
 
@@ -227,7 +225,7 @@ git commit -m "feat: add portfolio theme and motion interactions"
 
 **Interfaces:**
 - Consumes: the complete static page.
-- Produces: visual evidence, final validation results, and the deployed GitHub Pages revision.
+- Produces: visual evidence when a browser is available, final validation results, and the deployed Railway revision.
 
 - [ ] **Step 1: Serve the site locally**
 
@@ -235,9 +233,9 @@ Run: `python3 -m http.server 4173`
 
 Expected: `http://127.0.0.1:4173/` returns the redesigned page.
 
-- [ ] **Step 2: Verify desktop and mobile with Playwright**
+- [ ] **Step 2: Verify desktop and mobile with the connected browser**
 
-At 1440×1100 and 390×844, check the hero, navigation, product sections, timeline, theme toggle, mobile menu, contact links, absence of horizontal overflow, and console errors. Capture full-page screenshots.
+At 1440×1100 and 390×844, check the hero, navigation, product sections, timeline, theme toggle, mobile menu, contact links, absence of horizontal overflow, and console errors. Capture full-page screenshots. If no browser surface is connected, record that limitation explicitly and do not claim visual verification.
 
 - [ ] **Step 3: Verify reduced motion and keyboard flow**
 
@@ -245,7 +243,7 @@ Emulate reduced motion, confirm content stays visible and animations are disable
 
 - [ ] **Step 4: Run final local gates**
 
-Run: `python3 -m unittest tests/test_portfolio.py -v && node --check assets/js/main.js && git diff --check`
+Run: `zsh tests/test_portfolio.sh && node --check - < assets/js/main.js && git diff --check`
 
 Expected: all tests pass, syntax is valid, and no diff whitespace errors exist.
 
@@ -260,9 +258,8 @@ git commit -m "fix: polish responsive portfolio presentation"
 
 Run: `git status --short --branch && git remote -v && git log -1 --oneline && git push origin main`
 
-Expected: local `main` pushes successfully to the configured GitHub remote. Do not include unrelated untracked screenshot or local-tool files in commits.
+Expected: local `main` pushes successfully to the configured GitHub remote if the Railway service deploys from GitHub. If Railway is not GitHub-connected, use the linked Railway CLI project instead. Do not include unrelated untracked screenshot or local-tool files in commits.
 
-- [ ] **Step 7: Verify GitHub Pages**
+- [ ] **Step 7: Verify Railway and the custom domain**
 
-Open `https://terzigolu.github.io/portfolio/` after the Pages build completes. Confirm the deployed revision shows the new header/hero, loads CSS/JS without 404s, and has no console errors. If deployment fails, inspect the repository's Pages workflow/status before making changes.
-
+Open `https://yusufterzioglu.com/` after the Railway deployment completes. Confirm the deployed revision shows the new header/hero and that HTML, CSS, and JavaScript return successful responses. If deployment fails, inspect the linked Railway service and deployment logs before changing the project.

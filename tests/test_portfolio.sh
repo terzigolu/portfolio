@@ -92,6 +92,7 @@ assert_matches "$css" ':focus-visible' "visible focus styles exist"
 assert_contains "$css" '.js [data-reveal]' "JS-gated reveal styles exist"
 assert_contains "$css" '.is-visible' "visible reveal state exists"
 assert_matches "$css" 'prefers-reduced-motion:[[:space:]]*reduce' "reduced motion is supported"
+assert_not_contains "$css" '.theme-toggle { display: none; }' "theme control remains available at 320px"
 
 for marker in 'const STORAGE_KEY = "yt-theme"' IntersectionObserver prefers-reduced-motion 'setAttribute("aria-expanded"' 'document.documentElement.dataset.theme'; do
   assert_contains "$js" "$marker" "JavaScript behavior $marker exists"

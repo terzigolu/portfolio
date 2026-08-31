@@ -1354,8 +1354,6 @@ time {
 }
 
 @media (max-width: 360px) {
-  .theme-toggle { display: none; }
-  .nav-shell { grid-template-columns: 1fr auto; }
   .hero h1 { font-size: 3rem; }
   .proof-grid { grid-template-columns: 1fr; }
   .proof-item { min-height: 112px; border-right: 1px solid var(--border); border-bottom: 1px solid var(--border); }

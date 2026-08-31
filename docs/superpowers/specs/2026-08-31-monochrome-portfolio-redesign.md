@@ -148,7 +148,7 @@ These are facts already present in the current site, not counters that animate f
 
 ## Technical Approach
 
-The site remains a static GitHub Pages-compatible implementation. A framework migration is out of scope because it would add build and deployment complexity without improving the single-page portfolio experience.
+The site remains a static implementation served by the repository's existing Railway deployment and custom domain, `yusufterzioglu.com`. It must also stay compatible with simple static hosting. A framework migration is out of scope because it would add build and deployment complexity without improving the single-page portfolio experience.
 
 Primary files:
 
@@ -192,4 +192,3 @@ Existing vendor files can remain on disk for compatibility, but unused libraries
 - No invented product metrics, testimonials, client logos, or case-study outcomes.
 - No decorative 3D scene, particle background, gradient mesh, terminal typing loop, or generic bento-dashboard layout.
 - No removal of valid resume history merely to make the page shorter; older history may be visually condensed.
-
